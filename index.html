@@ -65,6 +65,149 @@
             line-height: 1.6;
             overflow-x: hidden;
             font-weight: 400;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        /* Theme Toggle - Edison Bulb */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 2000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 200ms ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        .lightbulb {
+            width: 45px;
+            height: 63px;
+            color: var(--navy-600);
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        .glow {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .filament {
+            transition: stroke 0.3s ease;
+        }
+        
+        .glass {
+            transition: fill 0.3s ease, stroke 0.3s ease;
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1E3A52;
+            color: #E5E7EB;
+        }
+        
+        body.dark-mode .theme-toggle .glow {
+            opacity: 0;
+        }
+        
+        body.dark-mode .theme-toggle .filament {
+            stroke: #6B7280;
+            opacity: 0.4;
+        }
+        
+        body.dark-mode .theme-toggle .glass {
+            fill: rgba(107, 114, 128, 0.1);
+            stroke: #6B7280;
+        }
+        
+        body.dark-mode .theme-toggle .lightbulb {
+            color: #6B7280;
+        }
+        
+        /* Dark mode section backgrounds */
+        body.dark-mode .hero {
+            background: #1E3A52;
+        }
+        
+        body.dark-mode .about-section {
+            background: #2D5A5A;
+        }
+        
+        body.dark-mode .skills-section {
+            background: #2C3642;
+        }
+        
+        body.dark-mode .projects-section {
+            background: #3A5F64;
+        }
+        
+        body.dark-mode .demos-section {
+            background: #4A3238;
+        }
+        
+        body.dark-mode .experience-section {
+            background: #2D5A5A;
+        }
+        
+        body.dark-mode .contact-section {
+            background: #1E3A52;
+        }
+        
+        body.dark-mode .footer {
+            background: #0F1F2E;
+        }
+        
+        /* Dark mode card backgrounds */
+        body.dark-mode .highlight-item,
+        body.dark-mode .skill-category,
+        body.dark-mode .project-card,
+        body.dark-mode .demo-card,
+        body.dark-mode .experience-card,
+        body.dark-mode .education-card,
+        body.dark-mode .contact-link {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Dark mode text colors */
+        body.dark-mode .section-title,
+        body.dark-mode .hero-name,
+        body.dark-mode .project-title,
+        body.dark-mode .demo-title,
+        body.dark-mode .experience-title,
+        body.dark-mode .education-degree,
+        body.dark-mode .contact-title {
+            color: #F3F4F6;
+        }
+        
+        body.dark-mode .section-subtitle,
+        body.dark-mode .hero-title,
+        body.dark-mode .hero-tagline,
+        body.dark-mode .about-text p,
+        body.dark-mode .project-description,
+        body.dark-mode .demo-description,
+        body.dark-mode .experience-highlights li,
+        body.dark-mode .contact-text {
+            color: #D1D5DB;
+        }
+        
+        /* Flicker animation on toggle */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        .theme-toggle.flickering .filament {
+            animation: flicker 0.15s ease-in-out 2;
         }
         
         /* Navigation */
@@ -929,6 +1072,40 @@
     </style>
 </head>
 <body>
+    <!-- Edison Bulb Dark Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="lightbulb" viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Glow effect (only visible in light mode) -->
+            <defs>
+                <radialGradient id="bulbGlow">
+                    <stop offset="0%" style="stop-color:#FFD93D;stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#FFD93D;stop-opacity:0" />
+                </radialGradient>
+            </defs>
+            
+            <!-- Glow circle -->
+            <circle class="glow" cx="50" cy="45" r="35" fill="url(#bulbGlow)" />
+            
+            <!-- Glass bulb -->
+            <path class="glass" d="M 50 10 Q 65 10 70 25 Q 72 35 70 45 Q 68 55 65 62 L 35 62 Q 32 55 30 45 Q 28 35 30 25 Q 35 10 50 10 Z" 
+                  fill="rgba(255, 255, 255, 0.2)" 
+                  stroke="currentColor" 
+                  stroke-width="2"/>
+            
+            <!-- Filament coil -->
+            <path class="filament" d="M 50 15 Q 45 20 50 25 Q 55 30 50 35 Q 45 40 50 45 Q 55 50 50 55" 
+                  fill="none" 
+                  stroke="#FF8C42" 
+                  stroke-width="2.5"
+                  stroke-linecap="round"/>
+            
+            <!-- Base threads -->
+            <rect class="base" x="42" y="62" width="16" height="3" fill="currentColor" opacity="0.3"/>
+            <rect class="base" x="42" y="66" width="16" height="3" fill="currentColor" opacity="0.3"/>
+            <rect class="base" x="42" y="70" width="16" height="3" fill="currentColor" opacity="0.3"/>
+        </svg>
+    </button>
+
     <!-- Desktop Navigation -->
     <div class="nav-desktop">
         <nav>
@@ -1525,6 +1702,36 @@
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            // Add flicker animation
+            themeToggle.classList.add('flickering');
+            
+            setTimeout(() => {
+                // Toggle dark mode
+                body.classList.toggle('dark-mode');
+                
+                // Save preference
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+                
+                // Remove flicker class
+                themeToggle.classList.remove('flickering');
+            }, 300);
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
