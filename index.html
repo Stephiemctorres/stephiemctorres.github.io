@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephanie Torres | Educational AI Solutions Developer</title>
+    <meta name="description" content="Prompt engineering specialist with educator background. Custom GPT development, LLM evaluation frameworks, and AI solution design.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Colors */
+            --navy-700: #1E3A52;
+            --navy-600: #2F5470;
+            --navy-500: #3D6B8F;
+            --navy-100: #D6E1EB;
+            --navy-50: #EBF0F5;
+            
+            --coral-600: #D16666;
+            --coral-500: #E87D7D;
+            --coral-100: #FFE8E8;
+            --coral-50: #FFF5F5;
+            
+            --mint-500: #4FBD8B;
+            --mint-300: #8DD9BA;
+            --mint-200: #B3E6D1;
+            --mint-100: #D9F2E8;
+            --mint-50: #F0FAF7;
+            
+            --cream-100: #F8F7F5;
+            --cream-50: #FEFEFE;
+            
+            --gray-700: #374151;
+            --gray-600: #4B5563;
+            --gray-500: #6B7280;
+            --gray-200: #E5E7EB;
+            
+            /* Typography */
+            --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+            --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+            
+            /* Spacing */
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-24: 6rem;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--cream-100);
+            color: var(--gray-700);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav-desktop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .nav-desktop nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-700);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--font-body);
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: color 150ms ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--coral-500);
+        }
+        
+        /* Mobile Navigation */
+        .nav-mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(254, 254, 254, 0.98);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--gray-200);
+            padding: 0.75rem 1rem;
+            z-index: 1000;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-mobile nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .nav-mobile a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: color 150ms ease;
+        }
+        
+        .nav-mobile a:hover,
+        .nav-mobile a.active {
+            color: var(--coral-500);
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem 6rem;
+            background: var(--cream-100);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(232, 125, 125, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-greeting {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy-600);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .hero-name {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            color: var(--navy-700);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 600;
+            color: var(--navy-500);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+        
+        .hero-tagline {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+        
+        .hero-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.6s ease-out 0.4s backwards;
+        }
+        
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--navy-50);
+            color: var(--navy-700);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 200ms ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--mint-100);
+            transform: translateY(-2px);
+        }
+        
+        .skill-icon {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--coral-500);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(232, 125, 125, 0.2);
+            transition: all 200ms ease;
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
+        }
+        
+        .cta-button:hover {
+            background: var(--coral-600);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(232, 125, 125, 0.3);
+        }
+        
+        .cta-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav-mobile {
+                display: none;
+            }
+            
+            .nav-desktop {
+                display: block;
+            }
+            
+            .hero {
+                padding: 2rem 2rem 2rem;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <div class="nav-desktop">
+        <nav>
+            <a href="#hero" class="nav-logo">Stephanie Torres</a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#about">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Skills
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="2 17 12 22 22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="2 12 12 17 22 12" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Projects
+                    </a>
+                </li>
+                <li>
+                    <a href="#demos">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <polygon points="5 3 19 12 5 21 5 3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Demos
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Experience
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile">
+        <nav>
+            <a href="#about" class="active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                About
+            </a>
+            <a href="#skills">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Skills
+            </a>
+            <a href="#projects">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="2 17 12 22 22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="2 12 12 17 22 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projects
+            </a>
+            <a href="#demos">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <polygon points="5 3 19 12 5 21 5 3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Demos
+            </a>
+            <a href="#experience">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Experience
+            </a>
+            <a href="#contact">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Contact
+            </a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Hi, I'm Stephanie 👋</p>
+            <h1 class="hero-name">Educational AI Solutions Developer</h1>
+            <h2 class="hero-title">Bringing Educator's Clarity to Enterprise AI</h2>
+            <p class="hero-tagline">
+                I design AI interactions that work reliably in production—combining a decade 
+                of teaching experience with advanced prompt engineering and evaluation frameworks.
+            </p>
+            
+            <div class="hero-skills">
+                <span class="skill-tag">
+                    <svg class="skill-icon" viewBox="0 0 24 24">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Prompt Engineering
+                </span>
+                <span class="skill-tag">
+                    <svg class="skill-icon" viewBox="0 0 24 24">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    LLM Evaluation
+                </span>
+                <span class="skill-tag">
+                    <svg class="skill-icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    System Design
+                </span>
+            </div>
+            
+            <a href="#contact" class="cta-button">
+                <svg class="cta-icon" viewBox="0 0 24 24">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Let's Work Together
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = window.innerWidth >= 768 ? 80 : 0;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting (mobile)
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-mobile a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
