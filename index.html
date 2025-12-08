@@ -338,6 +338,10 @@
             letter-spacing: -0.02em;
         }
         
+        .mobile-break {
+            display: inline;
+        }
+        
         .section-subtitle {
             font-family: var(--font-body);
             font-size: 1.125rem;
@@ -497,6 +501,10 @@
         @media (min-width: 640px) {
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mobile-break {
+                display: none;
             }
         }
         
@@ -697,7 +705,7 @@
     <section id="about" class="section about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">From Classroom to Code</h2>
+                <h2 class="section-title">From Classroom <br class="mobile-break">to Code</h2>
                 <p class="section-subtitle">How a decade of teaching prepared me for AI engineering</p>
             </div>
             
