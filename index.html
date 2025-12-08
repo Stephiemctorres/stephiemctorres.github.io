@@ -497,6 +497,365 @@
             transform: translateY(-1px);
         }
         
+        /* Projects Section */
+        .projects-section {
+            background: #B8E5EA;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            transition: all 200ms ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(232, 125, 125, 0.35);
+            border-color: var(--coral-500);
+        }
+        
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .project-meta {
+            flex: 1;
+        }
+        
+        .project-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-bottom: 0.25rem;
+        }
+        
+        .project-type {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--navy-500);
+        }
+        
+        .project-description {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        /* Demos Section */
+        .demos-section {
+            background: #FFBABA;
+        }
+        
+        .demos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+        
+        .demo-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            transition: all 200ms ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(232, 125, 125, 0.15);
+        }
+        
+        .demo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-description {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--coral-500);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 150ms ease;
+        }
+        
+        .demo-button:hover {
+            background: var(--coral-600);
+            transform: translateY(-1px);
+        }
+        
+        .demos-note {
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Experience Section */
+        .experience-section {
+            background: #7FCFD6;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+        
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+        }
+        
+        .experience-period {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--navy-500);
+            white-space: nowrap;
+        }
+        
+        .experience-content {
+            min-width: 0;
+        }
+        
+        .experience-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-bottom: 0.25rem;
+        }
+        
+        .experience-company {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--navy-500);
+            margin-bottom: 1rem;
+        }
+        
+        .experience-highlights {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .experience-highlights li {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-highlights li:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Education */
+        .education-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .education-header {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .education-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+        
+        .education-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .education-degree {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-bottom: 0.25rem;
+        }
+        
+        .education-school {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--navy-500);
+            margin-bottom: 0.25rem;
+        }
+        
+        .education-year {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--cream-100);
+        }
+        
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            font-weight: 700;
+            color: var(--navy-700);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-text {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            color: var(--navy-600);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid var(--gray-200);
+            transition: all 150ms ease;
+        }
+        
+        .contact-link:hover {
+            border-color: var(--navy-500);
+            background: var(--navy-50);
+            color: var(--navy-700);
+        }
+        
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .contact-cta {
+            display: inline-flex;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--navy-700);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-text {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+        
         /* Responsive */
         @media (min-width: 640px) {
             .skills-grid {
@@ -505,6 +864,30 @@
             
             .mobile-break {
                 display: none;
+            }
+            
+            .demos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .education-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-methods {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 639px) {
+            .experience-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .experience-period {
+                white-space: normal;
             }
         }
         
@@ -705,7 +1088,7 @@
     <section id="about" class="section about-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">From Classroom <br class="mobile-break">to Code</h2>
+                <h2 class="section-title">From Educator to AI Architect</h2>
                 <p class="section-subtitle">How a decade of teaching prepared me for AI engineering</p>
             </div>
             
@@ -866,7 +1249,282 @@
         </div>
     </section>
 
-    <script>
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Real-world AI solutions built with purpose and precision</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Email Management System -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📧</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Email Management System</h3>
+                            <p class="project-type">Johns Hopkins Final Project</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        LLM-powered email classification and response system with comprehensive evaluation framework. 
+                        Designed for enterprise workflow with RAGAS metrics for quality assurance.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Evaluation</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Enterprise</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Jotbot -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">✍️</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Jotbot: Writing Style Analyzer</h3>
+                            <p class="project-type">Custom GPT</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Analyzes writing voice and style to help writers maintain consistency. Identifies patterns 
+                        in word choice, sentence structure, and transitions for authentic voice preservation.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Custom GPT</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Voice Analysis</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Bookbot -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📚</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Bookbot: Voice Note Organizer</h3>
+                            <p class="project-type">Custom GPT</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Transforms voice notes into organized research materials. Captures quotes, page numbers, 
+                        and insights through natural conversation, enabling knowledge synthesis without typing.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Custom GPT</span>
+                        <span class="tag">Voice-to-Text</span>
+                        <span class="tag">Organization</span>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Master's Exam Coach -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🎓</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Comprehensive Exam Writing Coach</h3>
+                            <p class="project-type">Claude Project</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Scaffolded study system for master's comprehensive exam preparation. Multi-tool workflow 
+                        combining recall practice, synthesis training, and timed writing simulation. Result: exam passed!
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Claude Project</span>
+                        <span class="tag">Multi-tool</span>
+                        <span class="tag">Educational Design</span>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Document Optimization Framework -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📝</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Document Optimization Framework</h3>
+                            <p class="project-type">Training & Implementation</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Strategic approach to chunking, metadata, and file organization for RAG systems. 
+                        Developed training materials and best practices for improved retrieval accuracy.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Training</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demos Section -->
+    <section id="demos" class="section demos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Demos</h2>
+                <p class="section-subtitle">Try these live AI applications built on Hugging Face</p>
+            </div>
+            
+            <div class="demos-grid">
+                <div class="demo-card">
+                    <div class="demo-icon">🎮</div>
+                    <h3 class="demo-title">Adaptive Learning Flashcards</h3>
+                    <p class="demo-description">
+                        Spaced repetition system that adapts to your learning pace. Try it to see personalized 
+                        study algorithms in action.
+                    </p>
+                    <a href="#" class="demo-button">
+                        Launch Demo →
+                    </a>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="demo-icon">✨</div>
+                    <h3 class="demo-title">More Demos Coming Soon</h3>
+                    <p class="demo-description">
+                        Additional interactive projects will be added here. Check back soon to explore more 
+                        AI-powered applications!
+                    </p>
+                </div>
+            </div>
+            
+            <p class="demos-note">
+                Note: Demo links will be added once Hugging Face projects are deployed. 
+                Each demo showcases different prompt engineering and system design techniques.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience & Education</h2>
+                <p class="section-subtitle">From educator to AI specialist</p>
+            </div>
+            
+            <div class="experience-grid">
+                <!-- Current Role -->
+                <div class="experience-card">
+                    <div class="experience-period">2025 - Present</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Independent AI Consultant & Cohort Facilitator</h3>
+                        <p class="experience-company">Freelance / Contract</p>
+                        <ul class="experience-highlights">
+                            <li>Lead monthly "Lunch & Learn" sessions on applied AI topics including custom GPT development and document optimization</li>
+                            <li>Bridge complex AI theory and practical implementation for diverse professional audiences</li>
+                            <li>Demonstrate prompt engineering strategies through live custom GPT showcases</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Previous Role -->
+                <div class="experience-card">
+                    <div class="experience-period">March 2024 - Dec 2024</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Operations Manager</h3>
+                        <p class="experience-company">The Insight Age</p>
+                        <ul class="experience-highlights">
+                            <li>Created "Blockbusted," flagship AI workshop with custom GPT guidance and interactive materials</li>
+                            <li>Coordinated weekly leadership cohorts and provided technical support for AI-driven consulting</li>
+                            <li>Managed cross-disciplinary collaboration and program operations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Teaching Background -->
+                <div class="experience-card">
+                    <div class="experience-period">2010 - 2020</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">K-12 Educator</h3>
+                        <p class="experience-company">Lee County School District & VIPKid</p>
+                        <ul class="experience-highlights">
+                            <li>Pioneered educational technology adoption (ClassDojo 2012, Google Classroom 2015)</li>
+                            <li>Developed data-driven learning systems and project-based assessment frameworks</li>
+                            <li>Led district-wide professional development on formative assessment practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="education-section">
+                <h3 class="education-header">Education & Certifications</h3>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-icon">🎓</div>
+                        <div>
+                            <h4 class="education-degree">Certificate in Applied Generative AI</h4>
+                            <p class="education-school">Johns Hopkins University</p>
+                            <p class="education-year">Completed August 2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="education-card">
+                        <div class="education-icon">📚</div>
+                        <div>
+                            <h4 class="education-degree">M.Ed., Early Childhood Education</h4>
+                            <p class="education-school">Columbus State University, GA</p>
+                            <p class="education-year">2008 - 2010</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="contact-title">Let's Work Together</h2>
+                <p class="contact-text">
+                    I'm currently seeking opportunities in prompt engineering, AI evaluation, 
+                    and educational AI solution development. Let's connect!
+                </p>
+                
+                <div class="contact-methods">
+                    <a href="/cdn-cgi/l/email-protection#63101706130b020d0a0623170b060a0d100a040b170204064d000c0e" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="__cf_email__" data-cfemail="d4a7a0b1a4bcb5babdb194a0bcb1bdbaa7bdb3bca0b5b3b1fab7bbb9">[email&#160;protected]</span>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/stephanie-torres-4933a9123" target="_blank" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="2" y="9" width="4" height="12" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+                
+                <a href="/cdn-cgi/l/email-protection#92e1e6f7e2faf3fcfbf7d2e6faf7fbfce1fbf5fae6f3f5f7bcf1fdff" class="cta-button contact-cta">
+                    <svg class="cta-icon" viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2024 Stephanie Torres. Built with intention and a lot of prompt iterations.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -894,16 +1552,4 @@
                 const sectionHeight = section.clientHeight;
                 if (window.pageYOffset >= sectionTop - 200) {
                     current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+              
