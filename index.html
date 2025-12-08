@@ -312,7 +312,190 @@
             }
         }
         
+        /* General Section Styles */
+        .section {
+            padding: 6rem 1.5rem;
+            transition: background-color 0.5s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--navy-700);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: var(--mint-50);
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-text p {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--gray-700);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-intro {
+            font-size: 1.25rem !important;
+            font-weight: 500;
+            color: var(--navy-700) !important;
+            margin-bottom: 2rem !important;
+        }
+        
+        .about-highlights {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+        
+        .highlight-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            stroke: var(--coral-500);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .highlight-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-item p {
+            font-size: 0.9375rem !important;
+            line-height: 1.6 !important;
+            color: var(--gray-600) !important;
+            margin: 0 !important;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            background: var(--cream-50);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--navy-50);
+        }
+        
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            stroke: var(--navy-500);
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .category-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy-700);
+            margin: 0;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--navy-50);
+            color: var(--navy-700);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 20px;
+            transition: all 150ms ease;
+        }
+        
+        .tag:hover {
+            background: var(--mint-100);
+            transform: translateY(-1px);
+        }
+        
         /* Responsive */
+        @media (min-width: 640px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (min-width: 768px) {
             .nav-mobile {
                 display: none;
@@ -324,6 +507,20 @@
             
             .hero {
                 padding: 2rem 2rem 2rem;
+            }
+            
+            .section {
+                padding: 6rem 2rem;
+            }
+            
+            .about-highlights {
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -489,6 +686,171 @@
                 </svg>
                 Let's Work Together
             </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">From Classroom to Code</h2>
+                <p class="section-subtitle">How a decade of teaching prepared me for AI engineering</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        After a decade of helping students understand complex concepts, I discovered 
+                        that the same skills—breaking down problems, iterating on solutions, and 
+                        designing clear communication—translate perfectly to prompt engineering.
+                    </p>
+                    
+                    <p>
+                        As an elementary educator, I pioneered technology integration starting in 2012, 
+                        training colleagues and creating data-driven learning systems. When I encountered 
+                        generative AI, I recognized its transformative potential immediately—but also saw 
+                        how many struggled to use it effectively.
+                    </p>
+                    
+                    <p>
+                        That's what led me to Johns Hopkins' Applied Generative AI certificate. I wanted 
+                        to move beyond surface-level prompting to truly understand how to build reliable, 
+                        production-ready AI solutions.
+                    </p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <svg class="highlight-icon" viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div>
+                                <h3>Educator's Clarity</h3>
+                                <p>I bring an educator's clarity to technical complexity—making AI accessible without dumbing it down</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-item">
+                            <svg class="highlight-icon" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div>
+                                <h3>Real-World Experience</h3>
+                                <p>I've built real systems with real users—family, colleagues, students—not just theoretical exercises</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-item">
+                            <svg class="highlight-icon" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="16" y1="13" x2="8" y2="13" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="16" y1="17" x2="8" y2="17" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="10 9 9 9 8 9" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div>
+                                <h3>Process-Driven</h3>
+                                <p>I document my methodology obsessively, making knowledge transfer seamless and implementation repeatable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Capabilities</h2>
+                <p class="section-subtitle">A comprehensive toolkit for building production-ready AI solutions</p>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- AI & Prompt Engineering -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>AI & Prompt Engineering</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Custom GPT Development</span>
+                        <span class="tag">Prompt Design & Optimization</span>
+                        <span class="tag">Multi-turn Conversation Design</span>
+                        <span class="tag">System Prompt Architecture</span>
+                        <span class="tag">Context Window Optimization</span>
+                        <span class="tag">Retrieval Strategy Design</span>
+                    </div>
+                </div>
+                
+                <!-- Evaluation & Testing -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Evaluation & Testing</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">LLM-as-a-Judge Frameworks</span>
+                        <span class="tag">RAGAS Evaluation</span>
+                        <span class="tag">Performance Benchmarking</span>
+                        <span class="tag">Quality Metrics Definition</span>
+                        <span class="tag">Iterative Testing</span>
+                        <span class="tag">Output Validation</span>
+                    </div>
+                </div>
+                
+                <!-- Technical Tools -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Technical Tools & Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">ChatGPT & Custom GPTs</span>
+                        <span class="tag">Claude (Anthropic)</span>
+                        <span class="tag">Airia Platform</span>
+                        <span class="tag">Python & Jupyter</span>
+                        <span class="tag">Hugging Face</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">Git & GitHub</span>
+                        <span class="tag">VS Code</span>
+                    </div>
+                </div>
+                
+                <!-- Core Competencies -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="2 17 12 22 22 17" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="2 12 12 17 22 12" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>Core Competencies</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">User Experience Design</span>
+                        <span class="tag">Technical Documentation</span>
+                        <span class="tag">Cross-functional Communication</span>
+                        <span class="tag">Curriculum Development</span>
+                        <span class="tag">Stakeholder Engagement</span>
+                        <span class="tag">Problem-Solving & Innovation</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
