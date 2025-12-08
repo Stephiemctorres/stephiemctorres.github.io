@@ -58,6 +58,12 @@
             --space-24: 6rem;
         }
         
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
         body {
             font-family: var(--font-body);
             background: var(--cream-100);
@@ -66,6 +72,7 @@
             overflow-x: hidden;
             font-weight: 400;
             transition: background-color 0.5s ease, color 0.5s ease;
+            max-width: 100vw;
         }
         
         /* Theme Toggle - Edison Bulb */
@@ -90,23 +97,23 @@
         }
         
         .lightbulb {
-            width: 45px;
-            height: 63px;
+            width: 50px;
+            height: 70px;
             color: var(--navy-600);
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
         }
         
-        .glow {
+        .glow-rays {
             opacity: 1;
             transition: opacity 0.3s ease;
         }
         
         .filament {
-            transition: stroke 0.3s ease;
+            transition: stroke 0.3s ease, opacity 0.3s ease;
         }
         
         .glass {
-            transition: fill 0.3s ease, stroke 0.3s ease;
+            transition: stroke 0.3s ease;
         }
         
         /* Dark Mode Styles */
@@ -115,17 +122,16 @@
             color: #E5E7EB;
         }
         
-        body.dark-mode .theme-toggle .glow {
+        body.dark-mode .theme-toggle .glow-rays {
             opacity: 0;
         }
         
         body.dark-mode .theme-toggle .filament {
             stroke: #6B7280;
-            opacity: 0.4;
+            opacity: 0.3;
         }
         
         body.dark-mode .theme-toggle .glass {
-            fill: rgba(107, 114, 128, 0.1);
             stroke: #6B7280;
         }
         
@@ -664,7 +670,9 @@
         
         .project-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(232, 125, 125, 0.35);
+            box-shadow: 
+                0 20px 50px rgba(127, 207, 214, 0.5),
+                0 10px 25px rgba(232, 125, 125, 0.4);
             border-color: var(--coral-500);
         }
         
@@ -1078,31 +1086,41 @@
             <!-- Glow effect (only visible in light mode) -->
             <defs>
                 <radialGradient id="bulbGlow">
-                    <stop offset="0%" style="stop-color:#FFD93D;stop-opacity:0.6" />
+                    <stop offset="0%" style="stop-color:#FFD93D;stop-opacity:0.8" />
                     <stop offset="100%" style="stop-color:#FFD93D;stop-opacity:0" />
                 </radialGradient>
             </defs>
             
-            <!-- Glow circle -->
-            <circle class="glow" cx="50" cy="45" r="35" fill="url(#bulbGlow)" />
+            <!-- Glow rays -->
+            <g class="glow-rays">
+                <line x1="50" y1="15" x2="50" y2="5" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <line x1="70" y1="22" x2="77" y2="15" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <line x1="80" y1="40" x2="90" y2="40" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <line x1="30" y1="22" x2="23" y2="15" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                <line x1="20" y1="40" x2="10" y2="40" stroke="#FFD93D" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+            </g>
             
-            <!-- Glass bulb -->
-            <path class="glass" d="M 50 10 Q 65 10 70 25 Q 72 35 70 45 Q 68 55 65 62 L 35 62 Q 32 55 30 45 Q 28 35 30 25 Q 35 10 50 10 Z" 
-                  fill="rgba(255, 255, 255, 0.2)" 
+            <!-- Glass bulb outline -->
+            <path class="glass" 
+                  d="M 50 15 C 60 15 68 23 68 35 C 68 45 64 52 60 58 L 40 58 C 36 52 32 45 32 35 C 32 23 40 15 50 15 Z" 
+                  fill="none"
                   stroke="currentColor" 
-                  stroke-width="2"/>
-            
-            <!-- Filament coil -->
-            <path class="filament" d="M 50 15 Q 45 20 50 25 Q 55 30 50 35 Q 45 40 50 45 Q 55 50 50 55" 
-                  fill="none" 
-                  stroke="#FF8C42" 
                   stroke-width="2.5"
                   stroke-linecap="round"/>
             
-            <!-- Base threads -->
-            <rect class="base" x="42" y="62" width="16" height="3" fill="currentColor" opacity="0.3"/>
-            <rect class="base" x="42" y="66" width="16" height="3" fill="currentColor" opacity="0.3"/>
-            <rect class="base" x="42" y="70" width="16" height="3" fill="currentColor" opacity="0.3"/>
+            <!-- Filament -->
+            <path class="filament" 
+                  d="M 50 20 L 47 30 L 53 35 L 47 40 L 53 45 L 50 50" 
+                  fill="none" 
+                  stroke="#FF8C42" 
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            
+            <!-- Base -->
+            <rect class="base" x="43" y="58" width="14" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+            <rect class="base" x="43" y="63" width="14" height="3" rx="1" fill="currentColor" opacity="0.3"/>
+            <rect class="base" x="44" y="67" width="12" height="2" rx="1" fill="currentColor" opacity="0.25"/>
         </svg>
     </button>
 
@@ -1224,8 +1242,8 @@
             <h1 class="hero-name">Educational AI Solutions Developer</h1>
             <h2 class="hero-title">Bringing Educator's Clarity to Enterprise AI</h2>
             <p class="hero-tagline">
-                I design AI interactions that work reliably in production—combining a decade 
-                of teaching experience with advanced prompt engineering and evaluation frameworks.
+                I design AI interactions that work reliably in production, combining a decade 
+                of teaching experience with advanced context and prompt engineering plus evaluation frameworks.
             </p>
             
             <div class="hero-skills">
@@ -1235,7 +1253,7 @@
                         <polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/>
                         <line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    Prompt Engineering
+                    Context Engineering
                 </span>
                 <span class="skill-tag">
                     <svg class="skill-icon" viewBox="0 0 24 24">
@@ -1273,14 +1291,14 @@
                 <div class="about-text">
                     <p class="about-intro">
                         After a decade of helping students understand complex concepts, I discovered 
-                        that the same skills—breaking down problems, iterating on solutions, and 
-                        designing clear communication—translate perfectly to prompt engineering.
+                        that the same skills translate perfectly to context and prompt engineering: 
+                        breaking down problems, iterating on solutions, and designing clear communication.
                     </p>
                     
                     <p>
                         As an elementary educator, I pioneered technology integration starting in 2012, 
                         training colleagues and creating data-driven learning systems. When I encountered 
-                        generative AI, I recognized its transformative potential immediately—but also saw 
+                        generative AI, I recognized its transformative potential immediately, but also saw 
                         how many struggled to use it effectively.
                     </p>
                     
@@ -1298,7 +1316,7 @@
                             </svg>
                             <div>
                                 <h3>Educator's Clarity</h3>
-                                <p>I bring an educator's clarity to technical complexity—making AI accessible without dumbing it down</p>
+                                <p>I bring an educator's clarity to technical complexity, making AI accessible without dumbing it down</p>
                             </div>
                         </div>
                         
@@ -1311,7 +1329,7 @@
                             </svg>
                             <div>
                                 <h3>Real-World Experience</h3>
-                                <p>I've built real systems with real users—family, colleagues, students—not just theoretical exercises</p>
+                                <p>I've built real systems with real users (family, colleagues, students), not just theoretical exercises</p>
                             </div>
                         </div>
                         
@@ -1351,7 +1369,7 @@
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/>
                             <line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <h3>AI & Prompt Engineering</h3>
+                        <h3>Context & Prompt Engineering</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="tag">Custom GPT Development</span>
