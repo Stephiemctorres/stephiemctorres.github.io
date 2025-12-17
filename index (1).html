@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephanie Torres | Educational AI Solutions Developer</title>
+    <meta name="description" content="Educational AI Solutions Developer specializing in context engineering, LLM evaluation frameworks, and custom AI development. Johns Hopkins certified.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.6;
+            color: #4B5563;
+            overflow-x: hidden;
+            max-width: 100vw;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* ===== COLOR VARIABLES ===== */
+        :root {
+            /* Teal (Signature Color) */
+            --teal-main: #7FCFD6;
+            --teal-light: #B8E5EA;
+            --teal-dark: #5BA7AE;
+            
+            /* Coral */
+            --coral-main: #E87D7D;
+            --coral-vibrant: #FFBABA;
+            --coral-dark: #D16666;
+            
+            /* Navy */
+            --navy-dark: #1E3A52;
+            --navy-medium: #3D6B8F;
+            --navy-light: #556B82;
+            
+            /* Neutrals */
+            --cream: #F8F7F5;
+            --white: #FEFEFE;
+            --gray-text: #4B5563;
+            --gray-muted: #6B7280;
+            --gray-light: #E5E7EB;
+            
+            /* Dark Mode Colors */
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #e5e5e5;
+            --dark-teal: #2d4a4d;
+            --dark-coral: #4a2d2d;
+            --dark-cream: #252525;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--navy-dark);
+            line-height: 1.2;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--navy-medium);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        /* ===== NAVIGATION ===== */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode nav {
+            background-color: var(--dark-card);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--navy-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        
+        body.dark-mode .nav-links a {
+            color: var(--dark-text);
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--coral-main);
+        }
+        
+        /* Mobile Bottom Navigation */
+        .mobile-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 0.75rem 0;
+            justify-content: space-around;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode .mobile-nav {
+            background-color: var(--dark-card);
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--gray-muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            padding: 0.25rem 0.5rem;
+            gap: 0.25rem;
+        }
+        
+        body.dark-mode .mobile-nav-item {
+            color: #a0a0a0;
+        }
+        
+        .mobile-nav-item.active {
+            color: var(--coral-main);
+        }
+        
+        .mobile-nav-icon {
+            width: 24px;
+            height: 24px;
+            stroke-width: 2;
+            stroke: currentColor;
+            fill: none;
+        }
+        
+        /* Desktop nav shows at 768px+ */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+            .mobile-nav {
+                display: none;
+            }
+        }
+        
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: 5rem 0;
+            width: 100%;
+            max-width: 100vw;
+            transition: background-color 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            section {
+                padding: 6rem 0;
+            }
+        }
+        
+        /* ===== HERO SECTION ===== */
+        #hero {
+            background-color: var(--cream);
+            text-align: center;
+            padding-top: 4rem;
+            position: relative;
+        }
+        
+        .hero-greeting {
+            font-size: 1.5rem;
+            color: var(--navy-medium);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            color: var(--navy-dark);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        
+        .hero-tagline {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            color: var(--navy-medium);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .hero-tag {
+            background-color: var(--teal-light);
+            color: var(--navy-dark);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        body.dark-mode .hero-tag {
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background-color: var(--teal-main);
+        }
+        
+        #about .section-title {
+            color: var(--navy-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .about-intro {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--navy-dark);
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .highlight-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .highlight-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy-dark);
+        }
+        
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            line-height: 1.5;
+        }
+        
+        /* ===== SKILLS SECTION ===== */
+        #skills {
+            background-color: var(--white);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .skill-category {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--gray-light);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            border-color: var(--teal-main);
+            box-shadow: 0 4px 12px rgba(127, 207, 214, 0.15);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            stroke: var(--coral-main);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--navy-dark);
+            font-weight: 600;
+        }
+        
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .skill-pill {
+            background-color: var(--teal-light);
+            color: var(--navy-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .skill-pill:hover {
+            background-color: var(--teal-main);
+            transform: translateY(-2px);
+        }
+        
+        body.dark-mode .skill-pill {
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+        }
+        
+        /* ===== PROJECTS SECTION ===== */
+        #projects {
+            background-color: var(--teal-light);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--navy-medium);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 20px 50px rgba(127, 207, 214, 0.5),
+                0 10px 25px rgba(232, 125, 125, 0.4);
+        }
+        
+        .project-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        
+        .project-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .project-meta {
+            flex: 1;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--navy-dark);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+        
+        .project-type {
+            font-size: 0.875rem;
+            color: var(--coral-main);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .project-description {
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background-color: var(--teal-light);
+            color: var(--navy-dark);
+            padding: 0.375rem 0.875rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        body.dark-mode .tag {
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+        }
+        
+        /* ===== DEMOS SECTION ===== */
+        #demos {
+            background-color: var(--coral-vibrant);
+        }
+        
+        .demos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .demos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .demo-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--teal-main);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(232, 125, 125, 0.2);
+        }
+        
+        .demo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-card h3 {
+            font-size: 1.5rem;
+            color: var(--navy-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-card p {
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            background-color: var(--coral-main);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .demo-button:hover {
+            background-color: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(232, 125, 125, 0.3);
+        }
+        
+        /* ===== EXPERIENCE SECTION ===== */
+        #experience {
+            background-color: var(--teal-main);
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .work-card,
+        .education-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--coral-main);
+            transition: all 0.3s ease;
+        }
+        
+        .work-card:hover,
+        .education-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .work-card h3,
+        .education-card h3 {
+            font-size: 1.5rem;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .work-meta,
+        .edu-meta {
+            color: var(--coral-main);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .work-card p,
+        .education-card p {
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+        
+        .education-section {
+            margin-top: 3rem;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .education-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background-color: var(--cream);
+            text-align: center;
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--navy-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.2s;
+            padding: 0.5rem;
+        }
+        
+        .contact-link:hover {
+            color: var(--coral-main);
+            transform: translateY(-2px);
+        }
+        
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--coral-main);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(232, 125, 125, 0.3);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--navy-dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.8);
+            margin: 0.5rem 0;
+        }
+        
+        /* ===== MOBILE ADJUSTMENTS ===== */
+        @media (max-width: 767px) {
+            section {
+                padding-bottom: 6rem; /* Extra space for mobile nav */
+            }
+            
+            .lightbulb {
+                width: 45px;
+                height: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Desktop Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--navy-dark);">ST</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#demos" class="nav-link">Demos</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-nav">
+        <a href="#about" class="mobile-nav-item">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>About</span>
+        </a>
+        <a href="#skills" class="mobile-nav-item">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+            </svg>
+            <span>Skills</span>
+        </a>
+        <a href="#projects" class="mobile-nav-item">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+            </svg>
+            <span>Projects</span>
+        </a>
+        <a href="#demos" class="mobile-nav-item">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+            <span>Demos</span>
+        </a>
+        <a href="#experience" class="mobile-nav-item">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+            <span>Experience</span>
+        </a>
+        <a href="#contact" class="mobile-nav-item">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span>Contact</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <p class="hero-greeting">Hi, I'm Stephanie 👋</p>
+            <h1 class="hero-title">Educational AI<br>Solutions Developer</h1>
+            <p class="hero-tagline">Bringing Educator's Clarity to Enterprise AI</p>
+            <p style="max-width: 700px; margin: 0 auto 2rem; color: var(--gray-text); line-height: 1.7;">
+                I design AI interactions that work reliably in production, combining a decade of teaching experience with advanced context and prompt engineering plus evaluation frameworks.
+            </p>
+            <div class="hero-tags">
+                <span class="hero-tag">Context Engineering</span>
+                <span class="hero-tag">LLM Evaluation</span>
+                <span class="hero-tag">System Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">From Educator to<br class="mobile-break">AI Architect</h2>
+            <p class="section-subtitle">How a decade of teaching prepared me for AI engineering</p>
+            
+            <div class="about-content">
+                <p class="about-intro">
+                    I bring an educator's approach to context engineering: breaking down problems, building on existing knowledge, and designing clear communication. I create AI solutions that meet people where they are.
+                </p>
+                
+                <p>
+                    My teaching background shapes how I approach context and prompt engineering. I think about the entire interaction, not just the initial prompt. I design for user success at every skill level.
+                </p>
+                
+                <p>
+                    <strong>What I build:</strong> Context-rich AI solutions with built-in evaluation, designed to scaffold growth and build on existing strengths.
+                </p>
+            </div>
+            
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">🎯</div>
+                    <h3>Educator's Clarity</h3>
+                    <p>I translate AI complexity into clarity. I make sure people understand what's happening and why it matters.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🔧</div>
+                    <h3>Real Solutions</h3>
+                    <p>Built systems with real users (family, colleagues, students), not just theoretical exercises</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">📚</div>
+                    <h3>Process-Driven</h3>
+                    <p>My structured approach means consistent quality. I know what works, I can replicate it, and I can scale it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            
+            <div class="skills-grid">
+                <!-- AI & Context Engineering -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <h3 class="category-title">AI & Context Engineering</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Custom GPT Development</span>
+                        <span class="skill-pill">System Prompt Design</span>
+                        <span class="skill-pill">Knowledge Architecture</span>
+                        <span class="skill-pill">RAG Implementation</span>
+                        <span class="skill-pill">Context Window Optimization</span>
+                        <span class="skill-pill">Multi-turn Conversations</span>
+                    </div>
+                </div>
+                
+                <!-- Evaluation & Testing -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <h3 class="category-title">Evaluation & Testing</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">LLM-as-a-Judge</span>
+                        <span class="skill-pill">RAGAS Framework</span>
+                        <span class="skill-pill">Evaluation Criteria Design</span>
+                        <span class="skill-pill">Performance Benchmarking</span>
+                        <span class="skill-pill">Iterative Testing</span>
+                        <span class="skill-pill">Quality Metrics</span>
+                    </div>
+                </div>
+                
+                <!-- Technical Tools -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                        <h3 class="category-title">Technical Tools</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Claude (Anthropic)</span>
+                        <span class="skill-pill">ChatGPT</span>
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Jupyter Notebooks</span>
+                        <span class="skill-pill">Hugging Face</span>
+                        <span class="skill-pill">Git/GitHub</span>
+                    </div>
+                </div>
+                
+                <!-- Core Competencies -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <svg class="category-icon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <h3 class="category-title">Core Competencies</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">User Experience Design</span>
+                        <span class="skill-pill">Technical Documentation</span>
+                        <span class="skill-pill">Cross-functional Communication</span>
+                        <span class="skill-pill">Curriculum Development</span>
+                        <span class="skill-pill">Stakeholder Engagement</span>
+                        <span class="skill-pill">Problem-Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Email Management -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📧</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Email Management System</h3>
+                            <p class="project-type">Johns Hopkins Final Project</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        LLM-powered email classification and response system with comprehensive evaluation framework. Implemented LLM-as-a-Judge methodology to assess relevance, clarity, and actionability of automated responses.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">LLM Evaluation</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">RAGAS</span>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Jotbot -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">✍️</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Jotbot: Writing Style Analyzer</h3>
+                            <p class="project-type">Custom GPT</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Analyzes writer's voice, lexicon, sentence structure, and transitions. Helped my husband refine his master's thesis by identifying his natural writing patterns and suggesting improvements aligned with his authentic voice.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Custom GPT</span>
+                        <span class="tag">Style Analysis</span>
+                        <span class="tag">Writing Coach</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Bookbot -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📚</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Bookbot: Voice Note Organizer</h3>
+                            <p class="project-type">Custom GPT</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Captures and organizes spoken research notes, quotes, and connections. Enabled my husband to engage with academic material through his strength (verbal communication) rather than forcing traditional note-taking methods.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Voice Processing</span>
+                        <span class="tag">Knowledge Management</span>
+                        <span class="tag">Accessibility</span>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Exam Coach -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🎓</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Comprehensive Exam Writing Coach</h3>
+                            <p class="project-type">Claude Project</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Scaffolded study system moving from recall to synthesis to timed exam preparation. Included cross-referenced knowledge base, synthesis vocabulary lists, and writing feedback rubrics. Result: He passed!
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Educational Design</span>
+                        <span class="tag">Multi-tool Workflow</span>
+                        <span class="tag">Scaffolding</span>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Document Optimization -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📄</div>
+                        <div class="project-meta">
+                            <h3 class="project-title">Document Optimization Framework</h3>
+                            <p class="project-type">RAG Strategy</p>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed chunking methodologies, metadata strategies, and file naming conventions to improve AI retrieval accuracy. Created training materials for diverse professional audiences to implement these techniques.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">Knowledge Architecture</span>
+                        <span class="tag">Training</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demos Section -->
+    <section id="demos">
+        <div class="container">
+            <h2 class="section-title">Interactive Demos</h2>
+            
+            <div class="demos-grid">
+                <div class="demo-card">
+                    <div class="demo-icon">🎴</div>
+                    <h3>Adaptive Learning Flashcards</h3>
+                    <p>Spaced repetition algorithm deployed as interactive web app. Built with Python and tested with real users (my kids!) to refine the learning experience.</p>
+                    <a href="#" class="demo-button">Launch Demo →</a>
+                </div>
+                
+                <div class="demo-card">
+                    <div class="demo-icon">🚀</div>
+                    <h3>More Demos Coming Soon</h3>
+                    <p>Additional interactive projects in development. Check back soon or connect with me to discuss custom AI solutions for your needs.</p>
+                    <a href="#contact" class="demo-button">Get in Touch →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-grid">
+                <div class="work-card">
+                    <h3>Independent AI Consultant & Cohort Facilitator</h3>
+                    <p class="work-meta">Freelance • January 2025 - Present</p>
+                    <p>
+                        Leading "Lunch & Learn" sessions on applied AI topics including custom GPT development, document optimization strategies, and practical implementation techniques for diverse professional audiences.
+                    </p>
+                </div>
+                
+                <div class="work-card">
+                    <h3>Operations Manager</h3>
+                    <p class="work-meta">The Insight Age • March 2024 - December 2024</p>
+                    <p>
+                        Created "Blockbusted," a flagship AI workshop experience. Managed cross-disciplinary collaboration and provided technical support for AI-driven consulting projects.
+                    </p>
+                </div>
+                
+                <div class="work-card">
+                    <h3>K-12 Educator</h3>
+                    <p class="work-meta">Lee County Schools & VIPKid • 2010 - 2020</p>
+                    <p>
+                        Pioneered educational technology adoption (ClassDojo 2012, Google Classroom 2015). Trained faculty on data-driven instruction and formative assessment practices. Created authentic assessment frameworks and project-based learning experiences.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-section">
+                <h2 class="section-title" style="margin-top: 3rem;">Education & Certifications</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>Certificate in Applied Generative AI</h3>
+                        <p class="edu-meta">Johns Hopkins University • Completed August 2025</p>
+                        <p>
+                            Comprehensive program covering prompt engineering, LLM evaluation, RAG implementation, and production AI system design.
+                        </p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3>M.Ed., Early Childhood Education</h3>
+                        <p class="edu-meta">Columbus State University, GA • 2008-2010</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Currently seeking opportunities in prompt engineering and AI solution development</p>
+                
+                <p style="font-size: 1.125rem; color: var(--gray-text); margin-bottom: 2rem; line-height: 1.7;">
+                    I'm looking for roles where I can apply my unique combination of educational expertise and technical AI skills to build human-centered solutions that work reliably in production.
+                </p>
+                
+                <div class="contact-links">
+                    <a href="/cdn-cgi/l/email-protection#186b6c7d68707976717d586c707d71766b717f706c797f7d367b7775" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/stephanie-torres-4933a9123" target="_blank" class="contact-link">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+                
+                <a href="/cdn-cgi/l/email-protection#2f5c5b4a5f474e41464a6f5b474a46415c4648475b4e484a014c4042" class="cta-button">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Stephanie Torres. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ===== SMOOTH SCROLL & ACTIVE NAVIGATION =====
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-item');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight active section in navigation
+        function setActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                  
